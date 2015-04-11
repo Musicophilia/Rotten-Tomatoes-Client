@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C797CB89973DDEEB6A8621B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB969B277967F0487F00C67 /* libPods.a */; };
 		D1D020FE1AD8D23300025843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D020FD1AD8D23300025843 /* AppDelegate.swift */; };
 		D1D021001AD8D23300025843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D020FF1AD8D23300025843 /* ViewController.swift */; };
 		D1D021031AD8D23300025843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D021011AD8D23300025843 /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A38A1142D39CE30311DE216 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0BB969B277967F0487F00C67 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		55F7D694D7FCBEDF68EDDB08 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D1D020F81AD8D23300025843 /* tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D020FC1AD8D23300025843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D020FD1AD8D23300025843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C797CB89973DDEEB6A8621B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F252098B7E2E96194E5B573 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BB969B277967F0487F00C67 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F42FF8D935EF983148B973F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A38A1142D39CE30311DE216 /* Pods.debug.xcconfig */,
+				55F7D694D7FCBEDF68EDDB08 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D1D020EF1AD8D23300025843 = {
 			isa = PBXGroup;
 			children = (
 				D1D020FA1AD8D23300025843 /* tomatoes */,
 				D1D021101AD8D23300025843 /* tomatoesTests */,
 				D1D020F91AD8D23300025843 /* Products */,
+				9F42FF8D935EF983148B973F /* Pods */,
+				1F252098B7E2E96194E5B573 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1D021171AD8D23300025843 /* Build configuration list for PBXNativeTarget "tomatoes" */;
 			buildPhases = (
+				E169B399F8077384AB9D77C3 /* Check Pods Manifest.lock */,
 				D1D020F41AD8D23300025843 /* Sources */,
 				D1D020F51AD8D23300025843 /* Frameworks */,
 				D1D020F61AD8D23300025843 /* Resources */,
+				B322396F685B4D7ECB829957 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +232,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B322396F685B4D7ECB829957 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E169B399F8077384AB9D77C3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1D020F41AD8D23300025843 /* Sources */ = {
@@ -334,6 +393,7 @@
 		};
 		D1D021181AD8D23300025843 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A38A1142D39CE30311DE216 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tomatoes/Info.plist;
@@ -344,6 +404,7 @@
 		};
 		D1D021191AD8D23300025843 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55F7D694D7FCBEDF68EDDB08 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tomatoes/Info.plist;
@@ -405,6 +466,7 @@
 				D1D021191AD8D23300025843 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1D0211A1AD8D23300025843 /* Build configuration list for PBXNativeTarget "tomatoesTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +475,7 @@
 				D1D0211C1AD8D23300025843 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
